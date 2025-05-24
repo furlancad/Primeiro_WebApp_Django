@@ -44,9 +44,9 @@ function renderiza_faturamento_mensal(url){
     }).then(function(result){
         return result.json()
     }).then(function(data){
-
+        
         const ctx = document.getElementById('faturamento_mensal').getContext('2d');
-        var cores_faturamento_mensal = gera_cor(qtd=data.labels.length) // Gere cores para cada barra
+        var cores_faturamento_mensal = gera_cor(qtd=12)
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -54,13 +54,13 @@ function renderiza_faturamento_mensal(url){
                 datasets: [{
                     label: 'Faturamento',
                     data: data.data,
-                    backgroundColor: cores_faturamento_mensal.bg_color, // Acesse o array bg_color
-                    borderColor: cores_faturamento_mensal.border_color, // Acesse o array border_color
+                    backgroundColor: cores_faturamento_mensal[0],
+                    borderColor: cores_faturamento_mensal[1],
                     borderWidth: 1
-                }]
-            },
-        });
-    })
+                    }]
+                },
+            });
+        })
 }
 
 function renderiza_produtos_mais_vendidos(url){
@@ -69,25 +69,24 @@ function renderiza_produtos_mais_vendidos(url){
     }).then(function(result){
         return result.json()
     }).then(function(data){
-
+        
         const ctx = document.getElementById('produtos_mais_vendidos').getContext('2d');
-        var cores_produtos_mais_vendidos = gera_cor(qtd=data.labels.length) // Gere cores para cada segmento
+        var cores_produtos_mais_vendidos = gera_cor(qtd=4)
         const myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 labels: data.labels,
                 datasets: [{
-                    label: 'Produtos Mais Vendidos',
+                    label: 'Despesas',
                     data: data.data,
-                    backgroundColor: cores_produtos_mais_vendidos.bg_color, // Acesse o array bg_color
-                    borderColor: cores_produtos_mais_vendidos.border_color, // Acesse o array border_color
+                    backgroundColor: cores_produtos_mais_vendidos[0],
+                    borderColor: cores_produtos_mais_vendidos[1],
                     borderWidth: 1
-                }]
-            },
-        });
-    })
+                    }]
+                },
+            });
+        })
 }
-
 
 function renderiza_funcionario_mes(url){
     fetch(url, {
@@ -95,20 +94,20 @@ function renderiza_funcionario_mes(url){
     }).then(function(result){
         return result.json()
     }).then(function(data){
-
+        
         const ctx = document.getElementById('funcionarios_do_mes').getContext('2d');
-        var cores_funcionarios_do_mes = gera_cor(qtd=data.labels.length) // Gere cores para cada área
+        var cores_funcionarios_do_mes = gera_cor(qtd=4)
         const myChart = new Chart(ctx, {
             type: 'polarArea',
             data: {
                 labels: data.labels,
                 datasets: [{
                     data: data.data,
-                    backgroundColor: cores_funcionarios_do_mes.bg_color, // Acesse o array bg_color
-                    borderColor: cores_funcionarios_do_mes.border_color, // Acesse o array border_color
+                    backgroundColor: cores_funcionarios_do_mes[0],
+                    borderColor: cores_funcionarios_do_mes[1],
                     borderWidth: 1
-                }]
-            },
-        });
-    })
+                    }]
+                },
+            });
+        })
 }

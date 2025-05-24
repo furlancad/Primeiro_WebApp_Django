@@ -8,7 +8,7 @@ SECRET_KEY = "django-insecure-#(83imqia_q8m^m4bzw(we6z*oj0b=$+-+ey6+smwtdtc2f)gg
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['furlancad.pythonanywhere.com']
+ALLOWED_HOSTS = ['furlancad.pythonanywhere.com', '127.0.0.1']
 
 
 INSTALLED_APPS = [
